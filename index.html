@@ -5,10 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/main.css">
-  <script src="js/main.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
   <title>Project 2</title>
 </head>
 <body>
+  <div class="container">
+    <div class="row">
+      <div class="applicant_container hidden">
+        <h1>Who pays the bill ?</h1>
+        <div class="applicant_input">
+          <input type="text" id="applicant_value"  placeholder="Enter Applicant" name="" value="">
+          <span id="add_applicant">Add</span>
+        </div>
+        <div class="applicant_list">
+          <h5>Who's participating</h5>
+          <div class="applicant_list_wrapper">
+            <span>John</span>
+          </div>
+        </div>
+        <div class="button_container">
+          <div id="show_results">Get the looser</div>
+        </div>
+      </div>
+      <div class="results_container ">
+        <h1>The Looser is :</h1>
+        <div class="result">
+          <h3>John</h3>
+        </div>
+        <div class="results_action">
+          <div class="run_again">Run again</div>
+          <div class="start_again">Start Again</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <script src="js/main.js" charset="utf-8"></script>
 </body>
 </html>
