@@ -3,6 +3,19 @@
   this.init=function(){
     this.addApplicants();
   };
+
+
+  this.showList = function(){
+    var list = document.querySelector('.applicant_list_wrapper');
+    var template = '';
+    for(var i=0 ; i < applicants.length; i++){
+      template += ' <span class= "name-tag" data-id="'+ i +'"> ' + applicants[i] + ' </span> ' ;
+    }
+    list.innerHTML='';
+    list.insertAdjacentHTML('afterbegin',template);
+    deleteIt();
+  }
+
   this.addApplicants = function(){
     function generateList(input){
       var value= input.value;
@@ -16,15 +29,7 @@
       }
     }
 
-    function showList(){
-      var list = document.querySelector('.applicant_list_wrapper');
-      var template = '';
-      for(var i=0 ; i < applicants.length; i++){
-        template += ' <span class= "name-tag" data-id=""> ' + applicants[i] + ' </span> ' ;
-      }
-      list.innerHTML='';
-      list.insertAdjacentHTML('afterbegin',template);
-    }
+
 
     var addBtn = document.querySelector('#add_applicant');
     addBtn.addEventListener('click',function(){
@@ -37,6 +42,20 @@
       return true;
     }
     return false;
+  };
+  this.deleteIt = function(){
+    var item = document.querySelectorAll('.name-tag');
+    function removeIt(element){
+      var attr = parseInt(element.getAttribute('data-id'));
+      applicants.splice(attr,1);
+      showList();
+
+    }
+    for(var i=0 ; i< item.length; i++){
+      item[i].addEventListener('click',function(e){
+        removeIt(this)
+      })
+    }
   };
   this.init();
 })();
