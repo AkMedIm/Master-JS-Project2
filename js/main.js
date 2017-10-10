@@ -6,8 +6,8 @@
   this.addApplicants = function(){
     function generateList(input){
       var value= input.value;
-      if(this.checkValid(value)){
-          applicants.push(value);
+      if(this.checkValid(value.toLowerCase())){
+          applicants.push(value.toLowerCase());
           input.value='';
       }else{
         window.alert( "something wrong!" );
