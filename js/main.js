@@ -2,6 +2,7 @@
   this.applicants=[];
   this.init=function(){
     this.addApplicants();
+    this.getRandomUser();
   };
 
 
@@ -54,8 +55,32 @@
     for(var i=0 ; i< item.length; i++){
       item[i].addEventListener('click',function(e){
         removeIt(this)
-      })
+      });
     }
   };
+
+this.getRandomUser= function(){
+   var resultBtn = document.querySelector('#show_results');
+   function showLoser(){
+     var resultsContainer = document.querySelector('.results_container');
+     var applicantsContainer = document.querySelector('.applicant_container');
+     applicantsContainer.className += ' hidden';
+     resultsContainer.className = ' results_container';
+     showRandomUser();
+   }
+   resultBtn.addEventListener('click',function(e){
+   if(applicants.length > 1){
+     showLoser();
+   }
+   });
+}
+
+  this.showRandomUser = function(){
+    var resultContainer = document.querySelector('.result');
+    var rand = applicants[Math.floor(Math.random() * applicants.length)];
+    resultContainer.innerHTML = '';
+    resultContainer.insertAdjacentHTML('afterbegin','<h3>'+ rand +'</h3>');
+  };
+
   this.init();
 })();
